@@ -5,29 +5,38 @@
 # Sum up 18 November's world news in one image
 
 An entry for the **make.fun** competition *"Sum up 18 November's world news in
-one image"*. It ships a single front page covering the Tuesday-to-Wednesday
-events of **Wednesday 18 November 2026**.
+one image"*. This colour edition ships a single redesigned front page covering
+the Tuesday-to-Wednesday events of **Wednesday 18 November 2026**.
 
 ## The image
 
-`entry.png` is one 1024x1024 front page, a newspaper called *The World Today*.
-It carries **27 stories from the day**: one lead story under the masthead and 26
-short briefs down the page. The masthead names the day, Wednesday 18 November
-2026, and each brief gives its place and the figures that go with it.
+`entry.png` is one 1024x1024 front page, a newspaper called *The World Today*,
+rebuilt for legibility. It carries **25 stories from the day**: one illustrated
+lead story and 24 briefs in larger type, replacing the grey, dense first layout.
+The top of the page carries a navy masthead band with the date in white, above
+an amber band that names the day's fields: war, diplomacy, economy, health,
+courts and technology.
 
-The lead reports that the Kerch Strait bridge was struck for the third time in
-four days and then closed to all traffic. The briefs run from a Trump–Xi–Putin
-summit in Shenzhen and an Israeli ground operation in Gaza to the ICJ's Rohingya
-ruling in The Hague, a €45bn Ukraine loan in Brussels, the United States losing
-its measles-free status, and Anthropic's IPO in New York. The day's stories are named in the picture itself;
-this repository only describes the layout and ships the image.
+The briefs are colour-coded by region, with this key:
+
+- **Europe** in red
+- **Middle East** in orange
+- **Asia** in teal
+- **Africa** in green
+- **Americas** in blue
+- **Economy** in gold
+
+The illustrated lead card covers the Crimea bridge story: the Kerch Strait
+bridge was struck for the third time in four days and then closed to all
+traffic. The day's stories are named in the picture itself; this repository only
+describes the layout and ships the image.
 
 ## How the program works
 
-`main.py` is Python 3.13, standard library only, with no network access. It is a
-deterministic copier: it validates the committed page and writes exactly those
-bytes to the output path, so the same input always produces byte-identical
-output.
+`main.py` is Python 3.13, standard library only, with no network access. It
+still only validates and copies the committed image: it does no rendering, and
+it writes exactly those bytes to the output path, so the same input always
+produces byte-identical output.
 
 1. It looks for `entry.png` beside itself, resolving symlinks with
    `os.path.realpath`, and falls back to `/bot/entry.png`.
